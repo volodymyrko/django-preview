@@ -1,0 +1,2 @@
+You are subscripted to antip.org.ua servsice
+If you want  unsubscribe, please, visit next url: http://{{site}}{{ url }}

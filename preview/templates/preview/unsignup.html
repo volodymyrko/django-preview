@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Unsubscribe</title>
+</head>
+<body>
+{% block content %}
+    <div style="margin: 50px 0 0 0; text-align: center;">
+    {% if email %}
+        email <strong>{{ email }}</strong> unsubcribed
+    {% else %}
+        Sorry, You entered worng key !!!
+    {% endif %}
+    </div>
+{% endblock %}
+</body>
+</html>
