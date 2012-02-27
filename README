@@ -1,0 +1,51 @@
+==============
+django-preview
+==============
+
+
+``django-preview`` is a clone of django-beta (https://github.com/revsys/django-beta/) module.
+It is a simple application to help you capture pre-beta interest
+with your sites.
+
+By default ``django-beta`` only captures a user's email address, however you
+can alternately set one of these two configuration options:
+
+BETA_CAPTURE_FIRST = True, will use a form and require the user to enter their
+first name and email address.
+
+BETA_CAPTURE_BOTH = True, will use a form and require the user enter their
+first name, last name, and email address.
+
+
+``django-preview`` add next additional functionality:
+1. After user sign up, it receive email with information about subscription
+2. User can unsubscribe following the url, recieved in email
+
+
+Installation
+============
+
+Add ``preview`` to your ``INSTALLED_APPS`` and run syncdb.
+
+Add the following to your urls.py:
+
+    url(r'^preview/', include('preview.urls')),
+
+Using the example templates provided in the code, create your customized preview signup templates.
+
+Managers
+--------
+
+The ``BetaSignup`` model has the following manager method to help out:
+
+BetaSignup.objects.contacted()
+BetaSignup.objects.not_contacted()
+BetaSignup.objects.registered()
+BetaSignup.objects.not_registered()
+
+Side Effects
+------------
+
+``django-beta`` listens for a signal on User creation and marks the
+corresponding BetaSignup entry as 'registered'.
+

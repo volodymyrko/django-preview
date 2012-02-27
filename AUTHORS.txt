@@ -1,4 +1,4 @@
 Kovtun Volodymyr  vova-zms@yandex.ua
 
-django-preview is a clone of https://github.com/revsys/django-beta/
+django-preview is a clone of https://github.com/revsys/django-beta/ (Frank Wiles <frank@revsys.com>)
 
