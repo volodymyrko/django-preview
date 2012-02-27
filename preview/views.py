@@ -23,7 +23,7 @@ def signup(request):
             activation_key = sha_constructor(salt+email).hexdigest()
             subsribe_email = form.save(commit=False)
             subsribe_email.key = activation_key
-            subsribe_email.save()            
+            subsribe_email.save()
             if Site._meta.installed:
                 site = Site.objects.get_current()
             else:
@@ -32,10 +32,10 @@ def signup(request):
             message = render_to_string('preview/email.txt', {'url': reverse('preview_unsignup', args=[activation_key]), 'site': site })
             send_mail(subject , message, settings.DEFAULT_FROM_EMAIL, [email], fail_silently=True)
             return redirect(reverse('preview_confirm'))
-    else:	
-    	form = BetaSignupForm()
+    else:
+        form = BetaSignupForm()
     return render_to_response('preview/signup.html', {'form': form},
-    	context_instance=RequestContext(request))
+        context_instance=RequestContext(request))
 
 def confirm(request):
     """ Confirmation Page """
@@ -50,5 +50,5 @@ def unsignup(request, key):
     if email:
         email.delete()
     return render_to_response('preview/unsignup.html', {'email': email},
-        context_instance=RequestContext(request))	
+        context_instance=RequestContext(request))
 
