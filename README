@@ -10,16 +10,20 @@ with your sites.
 By default ``django-beta`` only captures a user's email address, however you
 can alternately set one of these two configuration options:
 
+``django-preview`` add next additional functionality:
+1. After user sign up, it receive email with information about subscription
+2. User can unsubscribe following the url, recieved in email
+
+
+=============
+Configuration
+=============
+
 BETA_CAPTURE_FIRST = True, will use a form and require the user to enter their
 first name and email address.
 
 BETA_CAPTURE_BOTH = True, will use a form and require the user enter their
 first name, last name, and email address.
-
-
-``django-preview`` add next additional functionality:
-1. After user sign up, it receive email with information about subscription
-2. User can unsubscribe following the url, recieved in email
 
 
 Installation
