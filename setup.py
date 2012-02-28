@@ -7,7 +7,7 @@ setup(
     version="0.1",
     author='Kovtun Volodymyr',
     author_email='vova-zms@yandex.ua',
-    description='Managing preview subsciprion in Django',
+    description='Managing preview subsciption in Django',
     url='',
     packages=find_packages(),
     include_package_data=True,
