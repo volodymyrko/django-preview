@@ -19,11 +19,24 @@ can alternately set one of these two configuration options:
 Configuration
 =============
 
-BETA_CAPTURE_FIRST = True, will use a form and require the user to enter their
-first name and email address.
+PREVIEW_CAPTURE_FIRST = True, will use a form and require the user to enter their
+first name and email address.(Default: False)
 
-BETA_CAPTURE_BOTH = True, will use a form and require the user enter their
-first name, last name, and email address.
+PREVIEW_CAPTURE_BOTH = True, will use a form and require the user enter their
+first name, last name, and email address.(Default: False)
+
+PREVIEW_SEND_MAIL = False, will disable sending mail to user during subscribtion. (Default = True)
+
+If PREVIEW_SEND_MAIL = True (default) you must properly configure django to send mail:
+	Mail is sent using the SMTP host and port specified in the EMAIL_HOST and EMAIL_PORT settings. The EMAIL_HOST_USER and EMAIL_HOST_PASSWORD settings, if set, are used to authenticate to the SMTP server, and the EMAIL_USE_TLS setting controls whether a secure connection is used.
+
+	Fox example, to use gmail account set in setting.py settings like this:
+	DEFAULT_FROM_EMAIL = 'username@gmail.com'
+	EMAIL_USE_TLS = True
+	EMAIL_HOST = 'smtp.gmail.com'
+	EMAIL_HOST_USER = 'username@gmail.com'
+	EMAIL_HOST_PASSWORD = 'your_password'
+	EMAIL_PORT = 587
 
 
 Installation
