@@ -8,8 +8,8 @@ class BetaSignupForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(BetaSignupForm, self).__init__(*args, **kwargs) 
-        self.capture_first = getattr(settings, 'BETA_CAPTURE_FIRST', False)
-        self.capture_both = getattr(settings, 'BETA_CAPTURE_BOTH', False) 
+        self.capture_first = getattr(settings, 'PREVIEW_CAPTURE_FIRST', False)
+        self.capture_both = getattr(settings, 'PREVIEW_CAPTURE_BOTH', False) 
 
         if self.capture_first:
             self.fields.pop('last_name')

@@ -24,13 +24,15 @@ def signup(request):
             subsribe_email = form.save(commit=False)
             subsribe_email.key = activation_key
             subsribe_email.save()
-            if Site._meta.installed:
-                site = Site.objects.get_current()
-            else:
-                site = request.get_host()
-            subject = render_to_string('preview/email_subject.txt', {'site': site})
-            message = render_to_string('preview/email.txt', {'url': reverse('preview_unsignup', args=[activation_key]), 'site': site })
-            send_mail(subject , message, settings.DEFAULT_FROM_EMAIL, [email], fail_silently=True)
+            preview_send_mail = getattr(settings, 'PREVIEW_SEND_MAIL', True) 
+            if preview_send_mail:
+                if Site._meta.installed:
+                    site = Site.objects.get_current()
+                else:
+                    site = request.get_host()
+                subject = render_to_string('preview/email_subject.txt', {'site': site})
+                message = render_to_string('preview/email.txt', {'url': reverse('preview_unsignup', args=[activation_key]), 'site': site })
+                send_mail(subject , message, settings.DEFAULT_FROM_EMAIL, [email], fail_silently=True)
             return redirect(reverse('preview_confirm'))
     else:
         form = BetaSignupForm()
