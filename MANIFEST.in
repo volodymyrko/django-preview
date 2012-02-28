@@ -1,0 +1,7 @@
+include *.txt
+include preview/templates/preview/confirm.html
+include preview/templates/preview/email_subject.txt
+include preview/templates/preview/email.txt
+include preview/templates/preview/signup.html
+include preview/templates/preview/unsignup.html
+
