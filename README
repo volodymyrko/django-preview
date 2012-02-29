@@ -35,7 +35,7 @@ If PREVIEW_SEND_MAIL = True (default) you must properly configure django to send
 	EMAIL_USE_TLS = True
 	EMAIL_HOST = 'smtp.gmail.com'
 	EMAIL_HOST_USER = 'username@gmail.com'
-	EMAIL_HOST_PASSWORD = 'your_password'
+	EMAIL_HOST_PASSWORD = 'your_gmail_password'
 	EMAIL_PORT = 587
 
 
@@ -63,6 +63,6 @@ BetaSignup.objects.not_registered()
 Side Effects
 ------------
 
-``django-beta`` listens for a signal on User creation and marks the
+``django-preview`` listens for a signal on User creation and marks the
 corresponding BetaSignup entry as 'registered'.
 
